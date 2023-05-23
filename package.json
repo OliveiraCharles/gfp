@@ -46,7 +46,7 @@
     "@": "./",
     "@app": "server/app.js",
     "@config": "server/config",
-    "@controller": "server/controllers",
+    "@controllers": "server/controllers",
     "@models": "server/models",
     "@routes": "server/routes",
     "@services": "server/services",

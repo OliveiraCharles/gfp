@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const routes = require("@routes/userRoutes");
+const userRoutes = require("@routes/userRoutes");
+const despesaRoutes = require("@routes/despesaRoutes");
 const sendError = require("@utils/sendError");
 const app = express();
 
@@ -22,6 +23,8 @@ app.use(
 
 app.use(sendError);
 
-app.use("/", routes);
+// // app.use("/", routes);
+app.use("/users", userRoutes);
+app.use("/despesas", despesaRoutes);
 
 module.exports = app;
