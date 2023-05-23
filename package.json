@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "dev": "nodemon -q server/index.js"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +26,7 @@
     "nodemon": "^2.0.22",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "winston": "^3.8.2",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {
@@ -39,6 +41,16 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "typescript": "~4.9.4"
+  },
+  "_moduleAliases": {
+    "@": "./",
+    "@app": "server/app.js",
+    "@config": "server/config",
+    "@controller": "server/controllers",
+    "@models": "server/models",
+    "@routes": "server/routes",
+    "@services": "server/services",
+    "@utils": "server/utils"
   },
   "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.5.",
   "main": "index.js",
