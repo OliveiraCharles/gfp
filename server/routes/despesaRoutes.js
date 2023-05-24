@@ -1,12 +1,10 @@
 const router = require("express").Router();
-
 const DespesaController = require("@controllers/despesaController");
 
-router
-  .post("/", DespesaController.create)
-  .get("/", DespesaController.getAll)
-  .get("/:id", DespesaController.getOne)
-  .put("/:id", DespesaController.updateOne)
-  .delete("/:id", DespesaController.deleteOne);
+router.post("/", DespesaController.create.bind(DespesaController));
+router.get("/", DespesaController.getAll.bind(DespesaController));
+router.get("/:id", DespesaController.getOne.bind(DespesaController));
+router.put("/:id", DespesaController.updateOne.bind(DespesaController));
+router.delete("/:id", DespesaController.deleteOne.bind(DespesaController));
 
 module.exports = router;
