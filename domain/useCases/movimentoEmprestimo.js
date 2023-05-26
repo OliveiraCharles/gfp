@@ -1,0 +1,4 @@
+class movimentoEmprestimo {
+  constructor() {}
+  inserirMovParcelas() {}
+}

@@ -1,0 +1,5 @@
+class MovimentoTransferencias {
+  constructor() {}
+
+  inserirMovDestino() {}
+}
