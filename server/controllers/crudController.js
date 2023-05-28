@@ -1,5 +1,4 @@
 // crudController.js
-
 class CrudController {
   constructor(Model) {
     this.Model = Model;

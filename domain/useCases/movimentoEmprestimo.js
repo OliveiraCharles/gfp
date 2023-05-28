@@ -1,4 +1,0 @@
-class movimentoEmprestimo {
-  constructor() {}
-  inserirMovParcelas() {}
-}

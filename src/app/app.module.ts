@@ -9,6 +9,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { SideComponent } from './shared/components/side/side.component';
 import { FormComponent } from './shared/components/form/form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+require("module-alias/register");
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

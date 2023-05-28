@@ -1,3 +1,6 @@
+/*
+Responsável por encaminhar as rotas /movimentos
+*/
 const router = require("express").Router();
 const MovimentoFinanceiroController = require("@controllers/movimentoFinanceiroController");
 
