@@ -14,11 +14,22 @@ export class FormComponent {
 
   }
 
+  salvar(data: any) {
+    this.addMovimento(data)
+    this.voltar()
+  }
+
   addMovimento(data: any) {
     console.log(data);
     this.apiReq.addMovimento(data).subscribe((result: any) => {
       console.log(result);
-
     })
+    this.limparForm()
+  }
+
+  limparForm() {
+  }
+
+  voltar() {
   }
 }

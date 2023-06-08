@@ -80,6 +80,30 @@ class CrudController {
         res.status(500).send(error);
       });
   }
+
+  getByMonth(req, res) {
+    const month = req.params.month; // Exemplo: busca para o mês de maio
+
+    // Filtrar pelo mês indicado
+    const filtro = {
+      $expr: {
+        $eq: [{ $month: "$dataCompra" }, parseInt(month)],
+      },
+    };
+
+    this.Model.find(filtro)
+      .exec()
+      .then((result) => {
+        // Resultados encontrados
+        res.send(result);
+
+        console.log("Transações encontradas:", result);
+      })
+      .catch((err) => {
+        res.status(404).send({ message: `Erro ao buscar dados: ${err}` });
+        console.error("Erro ao buscar dados:", err);
+      });
+  }
 }
 
 module.exports = CrudController;

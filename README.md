@@ -38,3 +38,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - [ ] Filtrar Movimentos Listados
 - [ ] Processar
 - [ ] Exibir dados Processados
+- [x] Filtrar as movimentações pelo mes
+- [ ] Exibir apenas as movimentações do mes corrente
