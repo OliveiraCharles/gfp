@@ -9,6 +9,9 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { SideComponent } from './shared/components/side/side.component';
 import { FormComponent } from './shared/components/form/form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './shared/components/login/login.component';
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
 // require("module-alias/register");
 
 @NgModule({
@@ -18,12 +21,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HeaderComponent,
     FooterComponent,
     SideComponent,
-    FormComponent
+    FormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

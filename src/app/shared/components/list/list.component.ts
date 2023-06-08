@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from './../../../model/User';
+// import { movimento } from './../../../model/movimento';
 import { ApiRequestService } from "./../../services/api-request.service";
 
 @Component({
@@ -8,31 +8,26 @@ import { ApiRequestService } from "./../../services/api-request.service";
   styleUrls: ['./list.component.css']
 })
 export class ListComponent {
-  users: User[] = []
-  id;
-  body;
+  movimentos: any;
 
-  constructor(id: String, body: Object, private apiRequest: ApiRequestService) {
-    this.id = id
-    this.body = body
-  }
+  constructor(
+    private apiReq: ApiRequestService
+  ) { }
   ngOnInit(): void {
-    this.getUsers()
+    this.listMovimentos()
+
   }
 
-  async getUsers() {
-    console.log('component get users')
-    await this.apiRequest.getAll()
-      .then(users => {
-        this.users = users
+  async listMovimentos(): Promise<void> {
+    this.apiReq.listMovimento()
+      .subscribe(movimentos => {
+        this.movimentos = movimentos;
       })
-      .catch(err => console.error(err))
-
   }
 
-  deleteUser(id) {
-    this.apiRequest.deleteOne(id)
-    this.getUsers()
+  removeMovimento(id: string): void {
+    this.apiReq.removeMovimento(id).subscribe()
+    console.log(id);
+    this.listMovimentos()
   }
-
 }
