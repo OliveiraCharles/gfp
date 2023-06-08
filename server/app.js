@@ -2,11 +2,11 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 
-const despesaRoutes = require("@routes/despesaRoutes");
+const movimentoRoutes = require("@routes/movimentoRoutes");
 const estabelecimentoRoutes = require("@routes/estabelecimentoRoutes");
 const homeRoutes = require("@routes/homeRoutes");
-const movimentoFinanceiroRoutes = require("@routes/movimentoFinanceiroRoutes");
 const userRoutes = require("@routes/userRoutes");
+const relatorioRoutes = require("@routes/relatorioRoutes");
 const sendError = require("@utils/sendError");
 
 // MiddleWares
@@ -28,9 +28,9 @@ app.use(
 app.use(sendError);
 
 app.use("/", homeRoutes);
-app.use("/despesas", despesaRoutes);
+app.use("/movimentos", movimentoRoutes);
 app.use("/estabelecimentos", estabelecimentoRoutes);
-app.use("/movimentos", movimentoFinanceiroRoutes);
 app.use("/users", userRoutes);
+app.use("/relatorios", relatorioRoutes);
 
 module.exports = app;

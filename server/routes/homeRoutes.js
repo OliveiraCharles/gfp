@@ -1,3 +1,6 @@
+/*
+Responsável por encaminhar as rotas /home
+*/
 const router = require("express").Router();
 const homeController = require("@controllers/homeController");
 

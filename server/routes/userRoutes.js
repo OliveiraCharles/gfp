@@ -1,3 +1,6 @@
+/*
+Responsável por encaminhar as rotas /users
+*/
 const router = require("express").Router();
 const userController = require("@controllers/userController");
 
