@@ -9,6 +9,8 @@ import { ApiRequestService } from "./../../services/api-request.service";
 })
 export class ListComponent {
   users: User[] = []
+  id;
+  body;
 
   constructor(id: String, body: Object, private apiRequest: ApiRequestService) {
     this.id = id

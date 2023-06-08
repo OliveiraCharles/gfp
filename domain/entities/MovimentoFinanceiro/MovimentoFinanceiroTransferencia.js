@@ -23,7 +23,6 @@ class MovimentoFinanceiroTransferencia extends MovimentoFinanceiro {
       categoria,
       estabelecimento
     );
-    this.cartao = cartao;
   }
 
   // Motivos para mudança

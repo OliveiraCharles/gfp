@@ -28,7 +28,5 @@ class MovimentoFinanceiroDebito extends MovimentoFinanceiro {
 
   // Motivos para mudança
   alterarCartao() {}
-  alterarParcelas() {}
-  alterarJuros() {}
 }
 

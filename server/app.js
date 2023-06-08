@@ -5,8 +5,8 @@ const app = express();
 const movimentoRoutes = require("@routes/movimentoRoutes");
 const estabelecimentoRoutes = require("@routes/estabelecimentoRoutes");
 const homeRoutes = require("@routes/homeRoutes");
-const movimentoFinanceiroRoutes = require("@routes/movimentoFinanceiroRoutes");
 const userRoutes = require("@routes/userRoutes");
+const relatorioRoutes = require("@routes/relatorioRoutes");
 const sendError = require("@utils/sendError");
 
 // MiddleWares
@@ -31,5 +31,6 @@ app.use("/", homeRoutes);
 app.use("/movimentos", movimentoRoutes);
 app.use("/estabelecimentos", estabelecimentoRoutes);
 app.use("/users", userRoutes);
+app.use("/relatorios", relatorioRoutes);
 
 module.exports = app;
