@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 // import { movimento } from './../../../model/movimento';
-import { ApiRequestService } from "./../../services/api-request.service";
+import { MovimentoService } from "./../../services/movimento.service";
 
 @Component({
   selector: 'app-list',
@@ -9,25 +9,47 @@ import { ApiRequestService } from "./../../services/api-request.service";
 })
 export class ListComponent {
   movimentos: any;
+  dataAtual = new Date();
+  month = 0
+  monthNames: string[] = [
+    'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+  ];
 
   constructor(
-    private apiReq: ApiRequestService
+    private service: MovimentoService
   ) { }
+
   ngOnInit(): void {
-    this.listMovimentos()
+    this.month = this.dataAtual.getMonth() + 1; // Os meses em JavaScript são baseados em zero, então é necessário adicionar 1
+    this.listMovimentos(this.month)
 
   }
 
-  async listMovimentos(): Promise<void> {
-    this.apiReq.listMovimento()
+  listMovimentos(month): void {
+    console.log(month);
+
+    this.service.getByMonth(month)
       .subscribe(movimentos => {
         this.movimentos = movimentos;
       })
   }
 
   removeMovimento(id: string): void {
-    this.apiReq.removeMovimento(id).subscribe()
-    console.log(id);
-    this.listMovimentos()
+    this.service.deleteOne(id).subscribe()
+    this.listMovimentos(this.month)
+  }
+
+  editMovimento(id) {
+
+  }
+
+  addMonth() {
+    this.month += 1
+    this.listMovimentos(this.month)
+  }
+
+  remMonth() {
+    this.month -= 1
+    this.listMovimentos(this.month)
   }
 }

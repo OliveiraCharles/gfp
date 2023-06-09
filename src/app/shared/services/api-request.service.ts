@@ -22,6 +22,8 @@ export class ApiRequestService {
   removeMovimento(id: string) {
     return this.http.delete(`${API_URL}/movimentos/${id}`)
   }
+
+  
 }
 
 

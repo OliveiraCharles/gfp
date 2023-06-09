@@ -32,11 +32,40 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Issues
 
-- [x] Inserir novo movimento (Form)
-- [ ] Form datePicker
-- [x] Listar Movimentos
-- [ ] Filtrar Movimentos Listados
-- [ ] Processar
-- [ ] Exibir dados Processados
-- [x] Filtrar as movimentações pelo mes
-- [ ] Exibir apenas as movimentações do mes corrente
+### Backlog
+
+- [ ] Categories
+  - [ ] Criar Form de Adição de nova categoria
+  - [ ] Criar dropdown de list de categorias
+- [ ] List
+  - [ ] List - Melhorar exibição dos dados
+    - [ ] List - Trocar table por card
+    - [ ] List - Exibir descrição no hover
+  - [ ] List - Adicionar botão edit
+  - [ ] List - Corrigir atualização automática ao deletar
+  - [ ] List - Ordenar Movimentos Listados
+  - [ ] List - Corrigir Exibição por mes corrente (gmt -3)
+- [ ] Form
+  - [ ] Form - Movimento individual
+  - [ ] Form - Resolver botões salvar e add outro
+  - [ ] Form - Resolver botões salvar e add outro
+- [ ] Backend
+  - [ ] Backend - Calcular totais Movimentos mes
+- [ ] Graphs
+  - [ ] Graphs - Exibir dados Processados
+
+### ToDo
+
+### Doing
+
+- [ ] Form - Criar Form de edição / deleção
+
+### Done
+
+- [x] List - Corrigir exibição da data
+- [x] List - Filtrar as movimentações pelo mes
+- [x] List - Exibir apenas as movimentações do mes corrente
+- [x] Form - Inserir novo movimento
+- [x] Form - Adicionar datePicker
+- [x] List - Listar Movimentos
+- [x] Back - Filtrar as movimentações pelo mes

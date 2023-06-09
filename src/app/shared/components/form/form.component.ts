@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ApiRequestService } from '../../services/api-request.service';
+import { MovimentoService } from '../../services/movimento.service';
 
 @Component({
   selector: 'app-form',
@@ -9,10 +9,8 @@ import { ApiRequestService } from '../../services/api-request.service';
 export class FormComponent {
 
   constructor(
-    private apiReq: ApiRequestService
-  ) {
-
-  }
+    private apiReq: MovimentoService
+  ) { }
 
   salvar(data: any) {
     this.addMovimento(data)
@@ -21,7 +19,7 @@ export class FormComponent {
 
   addMovimento(data: any) {
     console.log(data);
-    this.apiReq.addMovimento(data).subscribe((result: any) => {
+    this.apiReq.addOne(data).subscribe((result: any) => {
       console.log(result);
     })
     this.limparForm()
