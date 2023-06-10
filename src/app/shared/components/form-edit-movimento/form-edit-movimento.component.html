@@ -1,25 +1,24 @@
-<div class="card text-white bg-light mx-auto my-5" style="max-width: 540px">
+<div class="card text-white bg-light mx-auto my-5" style="max-width: 400px">
   <div class="card-body">
-    <h2 class="text-success">Novo Movimento</h2>
+    <h2 class="text-success">{{ myForm.value?.nome }}</h2>
     <form
+      #myForm="ngForm"
       [formGroup]="myFormGroup"
-      #movimentoForm="ngForm"
-      (ngSubmit)="addMovimento(movimentoForm.value)"
+      (ngSubmit)="onSubmit()"
       action=""
     >
       <div class="mb-3">
         <label for="" class="form-label text-success">Data:</label>
         <input
-          type="date"
+          type="text"
           class="form-control"
-          name="dataCompra"
           formControlName="dataCompra"
+          name="dataCompra"
           id=""
           aria-describedby="helpId"
           placeholder=""
           required
         />
-        <small id="helpId" class="form-text text-muted"></small>
       </div>
 
       <div class="mb-3">
@@ -27,14 +26,13 @@
         <input
           type="text"
           class="form-control"
-          name="nome"
           formControlName="nome"
+          name="nome"
           id=""
           aria-describedby="helpId"
           placeholder=""
           required
         />
-        <small id="helpId" class="form-text text-muted"></small>
       </div>
 
       <div class="mb-3">
@@ -42,8 +40,8 @@
         <input
           type="text"
           class="form-control"
-          name="valor"
           formControlName="valor"
+          name="valor"
           id=""
           aria-describedby="helpId"
           placeholder=""
@@ -57,8 +55,8 @@
         <input
           type="text"
           class="form-control"
-          name="descricao"
           formControlName="descricao"
+          name="descricao"
           id=""
           aria-describedby="helpId"
           placeholder=""
@@ -66,18 +64,19 @@
         <small id="helpId" class="form-text text-muted"></small>
       </div>
 
-      <div class="mt-4 d-flex justify-content-between">
-        <div class="">
-          <button (click)="redirect('/list')" class="btn btn-secondary">
-            Voltar
-          </button>
-        </div>
-        <div class="d-flex gap-3 justify-content-end">
-          <button (click)="salvar(movimentoForm.value)" class="btn btn-success">
-            Salvar
-          </button>
-          <button type="submit" class="btn btn-success">Adicionar outro</button>
-        </div>
+      <div class="mb-3 d-flex justify-content-between">
+        <button (click)="redirect('/list')" class="btn btn-secondary">
+          Voltar
+        </button>
+        <button
+          class="btn btn-danger"
+          (click)="removeMovimento()"
+          type="button"
+        >
+          Excluir
+        </button>
+
+        <button type="submit" class="btn btn-success">Salvar</button>
       </div>
     </form>
   </div>

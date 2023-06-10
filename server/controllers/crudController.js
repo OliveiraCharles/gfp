@@ -82,7 +82,7 @@ class CrudController {
   }
 
   getByMonth(req, res) {
-    const month = req.params.month; // Exemplo: busca para o mês de maio
+    const month = req.params.month;
 
     // Filtrar pelo mês indicado
     const filtro = {
@@ -96,8 +96,6 @@ class CrudController {
       .then((result) => {
         // Resultados encontrados
         res.send(result);
-
-        console.log("Transações encontradas:", result);
       })
       .catch((err) => {
         res.status(404).send({ message: `Erro ao buscar dados: ${err}` });

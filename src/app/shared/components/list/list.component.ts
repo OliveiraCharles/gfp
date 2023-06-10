@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 // import { movimento } from './../../../model/movimento';
 import { MovimentoService } from "./../../services/movimento.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -16,7 +17,8 @@ export class ListComponent {
   ];
 
   constructor(
-    private service: MovimentoService
+    private service: MovimentoService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -26,7 +28,6 @@ export class ListComponent {
   }
 
   listMovimentos(month): void {
-    console.log(month);
 
     this.service.getByMonth(month)
       .subscribe(movimentos => {
@@ -51,5 +52,9 @@ export class ListComponent {
   remMonth() {
     this.month -= 1
     this.listMovimentos(this.month)
+  }
+
+  redirect(rota: string): void {
+    this.router.navigateByUrl(rota);
   }
 }

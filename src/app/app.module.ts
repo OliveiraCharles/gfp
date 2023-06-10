@@ -10,8 +10,9 @@ import { SideComponent } from './shared/components/side/side.component';
 import { FormComponent } from './shared/components/form/form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './shared/components/login/login.component';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
+import { FormEditMovimentoComponent } from './shared/components/form-edit-movimento/form-edit-movimento.component';
 // require("module-alias/register");
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     SideComponent,
     FormComponent,
-    LoginComponent
+    LoginComponent,
+    FormEditMovimentoComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

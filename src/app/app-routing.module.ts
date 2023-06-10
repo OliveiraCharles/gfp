@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListComponent } from './shared/components/list/list.component';
 import { FormComponent } from './shared/components/form/form.component';
 import { LoginComponent } from './shared/components/login/login.component';
+import { FormEditMovimentoComponent } from './shared/components/form-edit-movimento/form-edit-movimento.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: LoginComponent },
   { path: 'list', component: ListComponent },
+  { path: 'form/:id', component: FormEditMovimentoComponent },
   { path: 'form', component: FormComponent },
   //   { path: 'products', component: ProductsComponent },
   //   { path: 'contact', component: ContactComponent },
