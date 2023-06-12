@@ -17,49 +17,37 @@
         class="table table-striped table-hover table-borderless table-primary align-middle"
       >
         <thead class="table-light">
-          <!-- <caption>
-          Últimos Movimentos
-        </caption> -->
           <tr>
             <th>Data</th>
             <th class="">Nome</th>
-            <!-- <th>Descrição</th> -->
             <th class="text-end">Valor</th>
-            <!-- <th></th> -->
           </tr>
         </thead>
         <tbody class="table-group-divider">
           <tr *ngFor="let movimento of movimentos" class="table-success">
             <td class="">
-              {{ movimento.dataCompra | date : "dd/MM/yyyy" }}
+              <a
+                class="list-group-item list-group-item-action"
+                [routerLink]="['/movimento/edit/', movimento._id]"
+              >
+                {{ movimento.dataCompra | date : "dd/MM/yyyy" }}
+              </a>
             </td>
             <td>
               <a
                 class="list-group-item list-group-item-action"
-                [routerLink]="['/form/', movimento._id]"
+                [routerLink]="['/movimento/edit/', movimento._id]"
               >
                 {{ movimento.nome }}
               </a>
             </td>
-
-            <!-- <td>{{ movimento.descricao }}</td> -->
-            <td class="text-end">{{ movimento.valor }}</td>
-            <!-- <td>
-                <div class="d-flex gap-1">
-                  <button
-                  (click)="editMovimento(movimento._id)"
-                  class="btn btn-primary mt-3"
-                  >
-                  E
-                </button>
-                <button
-                (click)="removeMovimento(movimento._id)"
-                class="btn btn-danger mt-3"
-                >
-                X
-              </button>
-            </div>
-          </td> -->
+            <td class="text-end">
+              <a
+                class="list-group-item list-group-item-action"
+                [routerLink]="['/movimento/edit/', movimento._id]"
+                >{{ movimento.valor }}</a
+              >
+            </td>
           </tr>
         </tbody>
         <tfoot></tfoot>
@@ -74,7 +62,7 @@
           <button (click)="listMovimentos(month)" class="btn btn-secondary">
             Atualizar
           </button>
-          <a name="" id="" class="btn btn-success" href="/form" role="button"
+          <a name="" id="" class="btn btn-success" href="/movimento/add" role="button"
             >Adicionar</a
           >
         </div>

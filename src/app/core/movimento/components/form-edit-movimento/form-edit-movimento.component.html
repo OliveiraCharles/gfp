@@ -1,6 +1,8 @@
-<div class="card text-white bg-light mx-auto my-5" style="max-width: 400px">
+<div class="card text-success bg-light mx-auto my-5" style="max-width: 400px">
+  <div class="card-header bg-success text-center text-white">
+    <h2 class="">Movimento</h2>
+  </div>
   <div class="card-body">
-    <h2 class="text-success">{{ myForm.value?.nome }}</h2>
     <form
       #myForm="ngForm"
       [formGroup]="myFormGroup"
@@ -8,7 +10,7 @@
       action=""
     >
       <div class="mb-3">
-        <label for="" class="form-label text-success">Data:</label>
+        <label for="" class="form-label">Data:</label>
         <input
           type="text"
           class="form-control"
@@ -22,7 +24,7 @@
       </div>
 
       <div class="mb-3">
-        <label for="" class="form-label text-success">Nome:</label>
+        <label for="" class="form-label">Nome:</label>
         <input
           type="text"
           class="form-control"
@@ -36,7 +38,7 @@
       </div>
 
       <div class="mb-3">
-        <label for="" class="form-label text-success">Valor:</label>
+        <label for="" class="form-label">Valor:</label>
         <input
           type="text"
           class="form-control"
@@ -51,7 +53,7 @@
       </div>
 
       <div class="mb-3">
-        <label for="" class="form-label text-success">Descrição:</label>
+        <label for="" class="form-label">Descrição:</label>
         <input
           type="text"
           class="form-control"
@@ -63,20 +65,24 @@
         />
         <small id="helpId" class="form-text text-muted"></small>
       </div>
+      <hr />
+      <div class="t-3 d-flex justify-content-between">
+        <div class="">
+          <button (click)="voltar()" class="btn btn-secondary">
+            Voltar
+          </button>
+        </div>
+        <div class="d-flex gap-3 justify-content-end">
+          <button
+            class="btn btn-danger"
+            (click)="remove()"
+            type="button"
+          >
+            Excluir
+          </button>
 
-      <div class="mb-3 d-flex justify-content-between">
-        <button (click)="redirect('/list')" class="btn btn-secondary">
-          Voltar
-        </button>
-        <button
-          class="btn btn-danger"
-          (click)="removeMovimento()"
-          type="button"
-        >
-          Excluir
-        </button>
-
-        <button type="submit" class="btn btn-success">Salvar</button>
+          <button type="submit" class="btn btn-success">Salvar</button>
+        </div>
       </div>
     </form>
   </div>

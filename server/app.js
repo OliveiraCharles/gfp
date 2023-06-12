@@ -3,6 +3,7 @@ const cors = require("cors");
 const app = express();
 
 const movimentoRoutes = require("@routes/movimentoRoutes");
+const categoriaRoutes = require("@routes/categoriaRoutes");
 const estabelecimentoRoutes = require("@routes/estabelecimentoRoutes");
 const homeRoutes = require("@routes/homeRoutes");
 const userRoutes = require("@routes/userRoutes");
@@ -29,6 +30,7 @@ app.use(sendError);
 
 app.use("/", homeRoutes);
 app.use("/movimentos", movimentoRoutes);
+app.use("/categorias", categoriaRoutes);
 app.use("/estabelecimentos", estabelecimentoRoutes);
 app.use("/users", userRoutes);
 app.use("/relatorios", relatorioRoutes);

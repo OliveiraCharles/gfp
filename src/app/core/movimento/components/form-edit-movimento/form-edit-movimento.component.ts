@@ -35,10 +35,16 @@ export class FormEditMovimentoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.preencher();
+    this.fill();
   }
 
-  preencher() {
+
+  onSubmit() {
+    console.log('Submit');
+    this.edit()
+  }
+
+  fill() {
     this.service.getOne(this.id).subscribe((movimento: Movimento): void => {
       const dataCompra = new Date(movimento.dataCompra).toLocaleDateString()
 
@@ -55,30 +61,19 @@ export class FormEditMovimentoComponent implements OnInit {
     });
   }
 
-  editMovimento() {
-    console.log(this.myFormGroup.value);
+  edit() {
     this.service.editOne(this.myFormGroup.value).subscribe()
     this.voltar()
   }
 
-  removeMovimento() {
+  remove() {
     const id = this.id
     this.service.deleteOne(id).subscribe()
-    this.redirect('/list')
-  }
-
-
-  onSubmit() {
-    console.log('Submit');
-    this.editMovimento()
+    this.voltar()
   }
 
   voltar(): void {
-    this.location.back();
-  }
-
-  redirect(rota: string): void {
-    this.router.navigateByUrl(rota);
+    this.router.navigateByUrl('/movimentos');
   }
 
 }

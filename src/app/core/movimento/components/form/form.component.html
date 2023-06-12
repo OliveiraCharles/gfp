@@ -4,7 +4,7 @@
     <form
       [formGroup]="myFormGroup"
       #movimentoForm="ngForm"
-      (ngSubmit)="addMovimento(movimentoForm.value)"
+      (ngSubmit)="salvar()"
       action=""
     >
       <div class="mb-3">
@@ -68,15 +68,17 @@
 
       <div class="mt-4 d-flex justify-content-between">
         <div class="">
-          <button (click)="redirect('/list')" class="btn btn-secondary">
-            Voltar
-          </button>
+          <button (click)="voltar()" class="btn btn-secondary">Voltar</button>
         </div>
         <div class="d-flex gap-3 justify-content-end">
-          <button (click)="salvar(movimentoForm.value)" class="btn btn-success">
-            Salvar
+          <button (click)="salvar()" class="btn btn-success">Salvar</button>
+          <button
+            type="button"
+            (click)="adicionarOutro()"
+            class="btn btn-success"
+          >
+            Adicionar outro
           </button>
-          <button type="submit" class="btn btn-success">Adicionar outro</button>
         </div>
       </div>
     </form>

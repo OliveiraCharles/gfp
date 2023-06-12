@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { MovimentoService } from '../../services/movimento.service';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from './../../services/api.service';
 import { Location } from '@angular/common';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Categoria } from '../../model/categoria';
 
 @Component({
   selector: 'app-form',
@@ -11,20 +12,27 @@ import { Router } from '@angular/router';
 })
 export class FormComponent {
 
-  myFormGroup: FormGroup = this.formBuilder.group({
-    _id: [null],
-    nome: [null],
-    descricao: [null],
-    valor: [null],
-    dataCompra: [null]
-  });;
+  myFormGroup: FormGroup;
 
   constructor(
-    private apiReq: MovimentoService,
+    private service: ApiService,
     private location: Location,
     private formBuilder: FormBuilder,
     private router: Router,
   ) { }
+
+  ngOnInit() {
+    this.myFormGroup = this.formBuilder.group({
+      _id: [null],
+      nome: [null],
+      descricao: [null],
+      tipo: ['saída'] //radio button, pode ser entrada ou (checked) saida 
+    });
+  }
+
+  onSubmit(data: Categoria) {
+    this.addMovimento(data)
+  }
 
   salvar(data: any) {
     this.addMovimento(data)
@@ -32,7 +40,7 @@ export class FormComponent {
   }
 
   addMovimento(data: any) {
-    this.apiReq.addOne(data).subscribe()
+    this.service.addOne(data).subscribe()
     this.limparForm()
   }
 

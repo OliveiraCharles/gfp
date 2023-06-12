@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-// import { movimento } from './../../../model/movimento';
-import { MovimentoService } from "./../../services/movimento.service";
+// import { categoria } from './../../../model/categoria';
+import { ApiService } from "./../../services/api.service";
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent {
-  movimentos: any;
+  categorias: any;
   dataAtual = new Date();
   month = 0
   monthNames: string[] = [
@@ -17,43 +17,29 @@ export class ListComponent {
   ];
 
   constructor(
-    private service: MovimentoService,
+    private service: ApiService,
     private router: Router,
   ) { }
 
   ngOnInit(): void {
     this.month = this.dataAtual.getMonth() + 1; // Os meses em JavaScript são baseados em zero, então é necessário adicionar 1
-    this.listMovimentos(this.month)
+    this.listCategorias()
 
   }
 
-  listMovimentos(month): void {
+  listCategorias(): void {
 
-    this.service.getByMonth(month)
-      .subscribe(movimentos => {
-        this.movimentos = movimentos;
+    this.service.getAll()
+      .subscribe(categorias => {
+        this.categorias = categorias;
       })
   }
 
-  removeMovimento(id: string): void {
+  removecategoria(id: string): void {
     this.service.deleteOne(id).subscribe()
-    this.listMovimentos(this.month)
+    this.listCategorias()
   }
-
-  editMovimento(id) {
-
-  }
-
-  addMonth() {
-    this.month += 1
-    this.listMovimentos(this.month)
-  }
-
-  remMonth() {
-    this.month -= 1
-    this.listMovimentos(this.month)
-  }
-
+  
   redirect(rota: string): void {
     this.router.navigateByUrl(rota);
   }

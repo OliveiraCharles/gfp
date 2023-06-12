@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { API_URL } from './../../../environments/environment.development';
+import { API_URL } from '../../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class MovimentoService {
   constructor(
     private http: HttpClient) { }
 
-  addOne(movimento: any) {
+  addOne(movimento: any) {    
     return this.http.post(`${API_URL}/movimentos`, movimento)
   }
 
