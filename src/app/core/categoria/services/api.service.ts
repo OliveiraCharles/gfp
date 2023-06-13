@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { API_URL } from './../../../../environments/environment';
 
-import { Categoria } from '../model/categoria';
+import { Categoria } from '../../../../../1-Entities/MovimentoFinanceiro/valueObjects/Categoria/categoria';
 
 @Injectable({
   providedIn: 'root'

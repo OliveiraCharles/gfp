@@ -2,7 +2,7 @@
 Responsável por encaminhar as rotas /Categorias
 */
 const router = require("express").Router();
-const CategoriaController = require("@controllers/CategoriaController");
+const CategoriaController = require("@controllers/crud/CategoriaController");
 
 router.post("/", CategoriaController.create.bind(CategoriaController));
 router.get("/", CategoriaController.getAll.bind(CategoriaController));

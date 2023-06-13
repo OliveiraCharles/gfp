@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "dev": "nodemon -q server/index.js",
-    "api": "nodemon -q server/index.js"
+    "dev": "nodemon -q 3-Api/index.js",
+    "api": "nodemon -q 3-Api/index.js"
   },
   "private": true,
   "dependencies": {
@@ -50,13 +50,14 @@
   },
   "_moduleAliases": {
     "@": "./",
-    "@app": "server/app.js",
-    "@config": "server/config",
-    "@controllers": "server/controllers",
-    "@models": "server/models",
-    "@routes": "server/routes",
-    "@services": "server/services",
-    "@utils": "server/utils"
+    "@app": "3-Api/app.js",
+    "@config": "3-Api/config",
+    "@controllers": "3-Controllers",
+    "@models": "4-DB/models",
+    "@routes": "3-Api/routes",
+    "@services": "3-Services",
+    "@utils": "3-Api/utils",
+    "@db": "4-DB"
   },
   "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.5.",
   "main": "index.js",

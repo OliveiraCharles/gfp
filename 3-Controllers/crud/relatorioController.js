@@ -1,7 +1,7 @@
 const Relatorio = require("@models/relatorioModel");
-const Movimento = require("@controllers/movimentoController");
+const Movimento = require("@controllers/crud/movimentoController");
 
-const CrudController = require("@controllers/crudController");
+const CrudController = require("@controllers/crud/crudController");
 
 class RelatorioController extends CrudController {
   constructor(Relatorio) {

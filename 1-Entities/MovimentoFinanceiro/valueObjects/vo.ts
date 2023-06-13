@@ -1,4 +1,4 @@
-import { Categoria } from "../core/categoria/model/categoria";
+import { Categoria } from "./Categoria/categoria";
 
 export class Vo {
     id: string

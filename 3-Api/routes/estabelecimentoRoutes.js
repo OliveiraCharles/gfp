@@ -2,7 +2,7 @@
 Responsável por encaminhar as rotas /estabelecimento
 */
 const router = require("express").Router();
-const estabelecimentoController = require("@controllers/estabelecimentoController");
+const estabelecimentoController = require("@controllers/crud/estabelecimentoController");
 
 router.post(
   "/",

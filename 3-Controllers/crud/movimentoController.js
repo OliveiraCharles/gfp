@@ -1,5 +1,5 @@
 const Movimento = require("@models/movimentoModel");
-const CrudController = require("@controllers/crudController");
+const CrudController = require("@controllers/crud/crudController");
 
 class MovimentoController extends CrudController {
   constructor(Movimento) {

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListComponent } from './core/movimento/components/list/list.component';
 import { FormComponent } from './core/movimento/components/form/form.component';
-import { LoginComponent } from './shared/components/auth/login/login.component';
+import { LoginComponent } from './core/authentication/login/login.component';
 import { FormEditMovimentoComponent } from './core/movimento/components/form-edit-movimento/form-edit-movimento.component';
 import { FormComponent as FormCategoria } from './core/categoria/components/form/form.component';
 import { EditComponent } from './core/categoria/components/edit/edit.component';

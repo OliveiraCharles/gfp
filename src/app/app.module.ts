@@ -9,7 +9,7 @@ import { FooterComponent } from './shared/components/home/footer/footer.componen
 import { SideComponent } from './shared/components/home/side/side.component';
 import { FormComponent } from './core/movimento/components/form/form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { LoginComponent } from './shared/components/auth/login/login.component';
+import { LoginComponent } from './core/authentication/login/login.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { FormEditMovimentoComponent } from './core/movimento/components/form-edit-movimento/form-edit-movimento.component';

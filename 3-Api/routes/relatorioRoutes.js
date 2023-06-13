@@ -2,7 +2,7 @@
 Responsável por encaminhar as rotas /Relatorios
 */
 const router = require("express").Router();
-const RelatorioController = require("@controllers/relatorioController");
+const RelatorioController = require("@controllers/crud/relatorioController");
 
 // router.post("/", RelatorioController.create.bind(RelatorioController));
 // router.get("/a", RelatorioController.getAll.bind(RelatorioController));

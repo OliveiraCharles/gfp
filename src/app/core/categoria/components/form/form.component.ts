@@ -3,7 +3,7 @@ import { ApiService } from './../../services/api.service';
 import { Location } from '@angular/common';
 import { FormGroup, FormBuilder, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Categoria } from '../../model/categoria';
+import { Categoria } from '../../../../../../1-Entities/MovimentoFinanceiro/valueObjects/Categoria/categoria';
 
 @Component({
   selector: 'app-form',

@@ -1,5 +1,5 @@
 const User = require("@models/userModel");
-const CrudController = require("@controllers/crudController");
+const CrudController = require("@controllers/crud/crudController");
 
 class UserController extends CrudController {
   constructor(User) {
