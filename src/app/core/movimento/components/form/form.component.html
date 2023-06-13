@@ -1,6 +1,8 @@
-<div class="card text-white bg-light mx-auto my-5" style="max-width: 540px">
+<div class="card text-success bg-light mx-auto my-5" style="max-width: 540px">
+  <div class="card-header bg-success text-light text-center">
+    <h2 class="">Novo movimento</h2>
+  </div>
   <div class="card-body">
-    <h2 class="text-success">Novo Movimento</h2>
     <form
       [formGroup]="myFormGroup"
       #movimentoForm="ngForm"
@@ -8,7 +10,7 @@
       action=""
     >
       <div class="mb-3">
-        <label for="" class="form-label text-success">Data:</label>
+        <label for="" class="form-label">Data:</label>
         <input
           type="date"
           class="form-control"
@@ -23,7 +25,7 @@
       </div>
 
       <div class="mb-3">
-        <label for="" class="form-label text-success">Nome:</label>
+        <label for="" class="form-label">Nome:</label>
         <input
           type="text"
           class="form-control"
@@ -38,7 +40,7 @@
       </div>
 
       <div class="mb-3">
-        <label for="" class="form-label text-success">Valor:</label>
+        <label for="" class="form-label">Valor:</label>
         <input
           type="text"
           class="form-control"
@@ -53,7 +55,25 @@
       </div>
 
       <div class="mb-3">
-        <label for="" class="form-label text-success">Descrição:</label>
+        <label for="" class="form-label">Categoria:</label>
+        <select
+          class="form-select form-select"
+          formControlName="categoria"
+          name="categoria"
+          id="categoria"
+        >
+          <option>Selecione</option>
+          <option
+            *ngFor="let categoria of categorias"
+            [ngValue]="categoria._id"
+          >
+            {{ categoria.nome }}
+          </option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="" class="form-label">Descrição:</label>
         <input
           type="text"
           class="form-control"
@@ -71,7 +91,7 @@
           <button (click)="voltar()" class="btn btn-secondary">Voltar</button>
         </div>
         <div class="d-flex gap-3 justify-content-end">
-          <button (click)="salvar()" class="btn btn-success">Salvar</button>
+          <button type="button" (click)="salvar()" class="btn btn-success">Salvar</button>
           <button
             type="button"
             (click)="adicionarOutro()"

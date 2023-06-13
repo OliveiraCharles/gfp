@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApiService } from '../../../categoria/services/api.service';
+import { ApiService } from '../../../../../../3-Services/api.service';
 import { Categoria } from '../../../../../../1-Entities/MovimentoFinanceiro/valueObjects/Categoria/categoria';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 

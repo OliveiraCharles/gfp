@@ -3,23 +3,9 @@ import { Vo } from "../vo";
 
 export class Categoria extends Vo {
     constructor(
-        id: string,
-        nome: string,
-        descricao: string,
         tipo: string,
-        // private service: ApiService
     ) {
         super();
-        this.tipo = tipo; // Entrada Saída
+        this.tipo = tipo;
     }
-
-
-    // edit(categoria: Categoria) {
-    //     edit(categoria)
-    // }
 }
-
-// function edit(categoria: Categoria) {
-//     console.log('classe');
-//     return this.service.editOne(categoria).subscribe()
-// }

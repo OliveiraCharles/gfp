@@ -1,30 +1,35 @@
 <!-- <app-movimento-form></app-movimento-form> -->
 
 <div class="card my-5 mx-auto" style="max-width: 540px">
-  <div class="d-flex justify-content-between gap-3 bg-success card-header">
-    <button (click)="remMonth()" class="btn btn-success"><</button>
+  <div class="bg-success card-header text-light">
+    <div class="text-center">
+      <h2>Movimentos</h2>
+    </div>
+    <div class="d-flex justify-content-between gap-3">
+      <button (click)="remMonth()" class="btn btn-success"><</button>
 
-    <p class="text-white my-auto">{{ monthNames[month - 1] }}</p>
+      <p class="my-auto">{{ getMonthName(year, month) }}</p>
 
-    <button (click)="addMonth()" class="btn btn-success">></button>
+      <button (click)="addMonth()" class="btn btn-success">></button>
+    </div>
   </div>
   <div class="container">
-    <div class="my-3 d-flex justify-content-center">
-      <h2 class="text-success">Movimentos</h2>
-    </div>
+    <div class="my-3 d-flex justify-content-center"></div>
     <div class="table-responsive">
       <table
         class="table table-striped table-hover table-borderless table-primary align-middle"
       >
-        <thead class="table-light">
-          <tr>
-            <th>Data</th>
-            <th class="">Nome</th>
-            <th class="text-end">Valor</th>
+        <thead class="table-dark">
+          <tr class="">
+            <th>Total</th>
+            <th></th>
+            <th class="text-end">
+              {{ somatoria | currency : "BRL" : "symbol" : "1.2-2" }}
+            </th>
           </tr>
         </thead>
         <tbody class="table-group-divider">
-          <tr *ngFor="let movimento of movimentos" class="table-success">
+          <tr *ngFor="let movimento of movimentos" class="table-light">
             <td class="">
               <a
                 class="list-group-item list-group-item-action"
@@ -45,8 +50,9 @@
               <a
                 class="list-group-item list-group-item-action"
                 [routerLink]="['/movimento/edit/', movimento._id]"
-                >{{ movimento.valor }}</a
               >
+                {{ getValorFormatado(movimento) }}
+              </a>
             </td>
           </tr>
         </tbody>
@@ -59,10 +65,18 @@
           </button>
         </div>
         <div class="d-flex gap-3 justify-content-end">
-          <button (click)="listMovimentos(month)" class="btn btn-secondary">
+          <button
+            (click)="listMovimentos(year, month)"
+            class="btn btn-secondary"
+          >
             Atualizar
           </button>
-          <a name="" id="" class="btn btn-success" href="/movimento/add" role="button"
+          <a
+            name=""
+            id=""
+            class="btn btn-success"
+            href="/movimento/add"
+            role="button"
             >Adicionar</a
           >
         </div>

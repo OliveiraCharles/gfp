@@ -1,10 +1,9 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MovimentoService } from '../../services/movimento.service';
 import { ActivatedRoute } from '@angular/router';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Location } from '@angular/common';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { CategoriaService } from "../../../../../../3-Services/categoria.service";
 
 @Component({
   selector: 'app-form-edit-movimento',
@@ -16,38 +15,39 @@ export class FormEditMovimentoComponent implements OnInit {
   public myFormGroup: FormGroup
     = this.formBuilder.group({
       _id: [null],
+      dataCompra: [null],
       nome: [null],
       descricao: [null],
       valor: [null],
-      dataCompra: [null]
+      categoria: ['Selecione'],
     });
 
-  public movimento: Movimento;
+  public categorias: any;
+
+  private movimento: any;
   public id: string = this.route.snapshot.paramMap.get('id')
 
   constructor(
     private service: MovimentoService,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private location: Location,
     private router: Router,
-    private cd: ChangeDetectorRef
+    private categoriaService: CategoriaService,
   ) { }
 
   ngOnInit() {
+    this.listCategorias()
     this.fill();
+
   }
 
-
   onSubmit() {
-    console.log('Submit');
     this.edit()
   }
 
   fill() {
-    this.service.getOne(this.id).subscribe((movimento: Movimento): void => {
+    this.service.getOne(this.id).subscribe((movimento: any): void => {
       const dataCompra = new Date(movimento.dataCompra).toLocaleDateString()
-
       this.movimento = movimento
 
       this.myFormGroup = this.formBuilder.group({
@@ -55,10 +55,18 @@ export class FormEditMovimentoComponent implements OnInit {
         nome: [this.movimento.nome, Validators.required],
         descricao: [this.movimento.descricao],
         valor: [this.movimento.valor, Validators.required],
+        categoria: [this.movimento.categoria, Validators.required],
         dataCompra: [dataCompra, Validators.required]
 
       });
     });
+  }
+
+  listCategorias(): void {
+    this.categoriaService.getAll()
+      .subscribe(categorias => {
+        this.categorias = categorias;
+      })
   }
 
   edit() {
@@ -76,12 +84,4 @@ export class FormEditMovimentoComponent implements OnInit {
     this.router.navigateByUrl('/movimentos');
   }
 
-}
-
-interface Movimento {
-  _id: string;
-  nome: string;
-  descricao: string;
-  valor: number;
-  dataCompra: Date;
 }

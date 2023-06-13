@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { API_URL } from './../../../../environments/environment';
+import { API_URL } from '../src/environments/environment';
 
-import { Categoria } from '../../../../../1-Entities/MovimentoFinanceiro/valueObjects/Categoria/categoria';
+import { Categoria } from '../1-Entities/MovimentoFinanceiro/valueObjects/Categoria/categoria';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class ApiService {
+export class CategoriaService {
   constructor(
     private http: HttpClient) { }
 

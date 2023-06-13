@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+// const Categoria = require("../models/categoriaModel");
 
 const { Schema } = mongoose;
 

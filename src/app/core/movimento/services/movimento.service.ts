@@ -10,7 +10,10 @@ export class MovimentoService {
   constructor(
     private http: HttpClient) { }
 
-  addOne(movimento: any) {    
+  addOne(movimento: any) {
+    console.log('service');
+    console.log(movimento);
+
     return this.http.post(`${API_URL}/movimentos`, movimento)
   }
 
@@ -30,7 +33,7 @@ export class MovimentoService {
     return this.http.put(`${API_URL}/movimentos/${movimento._id}`, movimento)
   }
 
-  getByMonth(month: number) {
-    return this.http.get(`${API_URL}/movimentos/mes/${month}`)
+  getByMonth(year: number, month: number) {
+    return this.http.get(`${API_URL}/movimentos/by-month/${year}/${month}`)
   }
 }

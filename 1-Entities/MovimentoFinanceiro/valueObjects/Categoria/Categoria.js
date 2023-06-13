@@ -1,6 +1,11 @@
-class Categoria extends ValueObject {
-  constructor(id, nome, descricao, tipo) {
-    super(id, nome, descricao);
-    this.tipo = tipo; // Entrada Saída
+// const { ValueObject } = require('../ValueObject');
+
+class Categoria {
+  constructor(id, nome, descricao, tipo){
+    this.id = id;
+    this.nome = nome;
+    this.descricao = descricao;
+    this.tipo = tipo;
   }
+
 }

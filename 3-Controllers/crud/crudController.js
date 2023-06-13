@@ -83,11 +83,15 @@ class CrudController {
 
   getByMonth(req, res) {
     const month = req.params.month;
+    const year = req.params.year;
 
     // Filtrar pelo mês indicado
     const filtro = {
       $expr: {
-        $eq: [{ $month: "$dataCompra" }, parseInt(month)],
+        $and: [
+          { $eq: [{ $month: "$dataCompra" }, parseInt(month)] },
+          { $eq: [{ $year: "$dataCompra" }, parseInt(year)] }
+        ]
       },
     };
 
