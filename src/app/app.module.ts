@@ -3,16 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListComponent } from './shared/components/list/list.component';
-import { HeaderComponent } from './shared/components/header/header.component';
-import { FooterComponent } from './shared/components/footer/footer.component';
-import { SideComponent } from './shared/components/side/side.component';
-import { FormComponent } from './shared/components/form/form.component';
+import { ListComponent } from './core/movimento/components/list/list.component';
+import { HeaderComponent } from './shared/components/home/header/header.component';
+import { FooterComponent } from './shared/components/home/footer/footer.component';
+import { SideComponent } from './shared/components/home/side/side.component';
+import { FormComponent } from './core/movimento/components/form/form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { LoginComponent } from './shared/components/login/login.component';
+import { LoginComponent } from './core/authentication/login/login.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
-import { FormEditMovimentoComponent } from './shared/components/form-edit-movimento/form-edit-movimento.component';
+import { FormEditMovimentoComponent } from './core/movimento/components/form-edit-movimento/form-edit-movimento.component';
+import { EditComponent } from './core/categoria/components/edit/edit.component';
+import { FormComponent as FormCategoria } from './core/categoria/components/form/form.component';
+import { ListComponent as ListCategoria } from './core/categoria/components/list/list.component';
 // require("module-alias/register");
 
 @NgModule({
@@ -24,7 +27,10 @@ import { FormEditMovimentoComponent } from './shared/components/form-edit-movime
     SideComponent,
     FormComponent,
     LoginComponent,
-    FormEditMovimentoComponent
+    FormEditMovimentoComponent,
+    EditComponent,
+    FormCategoria,
+    ListCategoria,
   ],
   imports: [
     BrowserModule,

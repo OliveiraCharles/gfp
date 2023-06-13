@@ -41,14 +41,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
   - [ ] List - Melhorar exibição dos dados
     - [ ] List - Trocar table por card
     - [ ] List - Exibir descrição no hover
-  - [ ] List - Adicionar botão edit
   - [ ] List - Corrigir atualização automática ao deletar
   - [ ] List - Ordenar Movimentos Listados
   - [ ] List - Corrigir Exibição por mes corrente (gmt -3)
 - [ ] Form
-  - [ ] Form - Movimento individual
-  - [ ] Form - Resolver botões salvar e add outro
-  - [ ] Form - Resolver botões salvar e add outro
 - [ ] Backend
   - [ ] Backend - Calcular totais Movimentos mes
 - [ ] Graphs
@@ -58,10 +54,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ### Doing
 
-- [ ] Form - Criar Form de edição / deleção
 
 ### Done
 
+- [x] Form - Movimento individual
+- [x] Form - Resolver botões salvar e add outro
+- [x] List - Adicionar botão edit (Acesso ao form de edit ao clicar no nome do movimento)
+- [x] Form - Criar Form de edição / deleção
 - [x] List - Corrigir exibição da data
 - [x] List - Filtrar as movimentações pelo mes
 - [x] List - Exibir apenas as movimentações do mes corrente
