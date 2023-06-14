@@ -1,0 +1,92 @@
+<div class="card text-success bg-light mx-auto my-5" style="max-width: 400px">
+  <div class="card-header bg-success text-white">
+    <h2 class="">Categoria</h2>
+  </div>
+  <div class="card-body">
+    <form
+      #myForm="ngForm"
+      (ngSubmit)="onSubmit()"
+      [formGroup]="myFormGroup"
+      action=""
+    >
+      <div class="mb-3">
+        <label for="" class="form-label">Nome:</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="nome"
+          name="nome"
+          id=""
+          aria-describedby="helpId"
+          placeholder=""
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="" class="form-label">Descrição:</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="descricao"
+          name="descricao"
+          id=""
+          aria-describedby="helpId"
+          placeholder=""
+        />
+        <small id="helpId" class="form-text text-muted"></small>
+      </div>
+
+      <div class="">
+        <label for="" class="form-label">Tipo:</label><br />
+        <div
+          class="btn-group"
+          role="group"
+          aria-label="Basic radio toggle button group"
+        >
+          <input
+            type="radio"
+            class="btn-check"
+            formControlName="tipo"
+            id="entrada"
+            value="entrada"
+            autocomplete="off"
+          />
+          <label class="btn btn-outline-success" for="entrada">Entrada</label>
+
+          <input
+            type="radio"
+            class="btn-check"
+            formControlName="tipo"
+            id="saida"
+            value="saída"
+            autocomplete="off"
+            checked
+          />
+          <label class="btn btn-outline-secondary" for="saida">Saída</label>
+        </div>
+      </div>
+
+      <div class="mt-5 d-flex justify-content-between">
+        <div class="">
+          <button (click)="redirect('/categorias')" class="btn btn-secondary">
+            Voltar
+          </button>
+        </div>
+        <div class="d-flex gap-3 justify-content-end">
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="excluir()"
+          >
+            Excluir
+          </button>
+          <button type="button" (click)="salvar()" class="btn btn-success">
+            Salvar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- <div class="card-footer"></div> -->
+</div>

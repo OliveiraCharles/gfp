@@ -1,0 +1,42 @@
+<div class="card text-white bg-light mx-auto my-5" style="max-width: 400px">
+  <div class="card-header bg-success text-center text-light">
+    <h2>Entre</h2>
+  </div>
+  <div class="card-body">
+    <form
+      [formGroup]="myFormGroup"
+      #myForm="ngForm"
+      (ngSubmit)="onSubmit()"
+      action=""
+    >
+      <div class="mb-3">
+        <label for="" class="form-label text-success">Nome:</label>
+        <input
+          type="text"
+          class="form-control"
+          name=""
+          id=""
+          aria-describedby="helpId"
+          placeholder="Nome de Usuário"
+        />
+      </div>
+
+      <div class="mb-3">
+        <div class="mb-3">
+          <label for="" class="form-label text-success">Password:</label>
+          <input
+            type="password"
+            class="form-control"
+            name=""
+            id=""
+            placeholder=""
+          />
+        </div>
+      </div>
+      <div class="mb-3 d-flex justify-content-between">
+        <button type="button" (click)="cadastro()" class="btn btn-secondary">Cadastro</button>
+        <button type="submit" class="btn btn-success">Entrar</button>
+      </div>
+    </form>
+  </div>
+</div>
