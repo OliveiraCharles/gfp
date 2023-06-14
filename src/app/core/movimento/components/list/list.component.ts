@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 // import { movimento } from './../../../model/movimento';
-import { MovimentoService } from "../../services/movimento.service";
+import { MovimentoService } from "../../../../../../3-Services/movimento.service";
 import { Router } from '@angular/router';
 import { CategoriaService } from "../../../../../../3-Services/categoria.service";
 
