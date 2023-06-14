@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { User } from "./../../../../../4-DB/models/userModel";
 import { UserCrud } from '../../../../../3-Services/crud-user.service';
 import { Router } from '@angular/router';
+import { User } from "../../../../../4-DB/models/userModel";
 import * as CryptoJS from 'crypto-js';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
 })
-export class LoginComponent implements OnInit {
+export class SignupComponent {
+
   myFormGroup: FormGroup;
   user: User
-
 
   constructor(
     private service: UserCrud,
@@ -28,27 +28,29 @@ export class LoginComponent implements OnInit {
       password: [null]
     });
   }
+
   onSubmit() {
     this.user = this.myFormGroup.value
-    this.user.password = CryptoJS.SHA256(this.myFormGroup.value.password).toString()
-    this.login(this.user)
-    this.redirect('/movimentos')
+    this.user.passwordHash = CryptoJS.SHA256(this.myFormGroup.value.password).toString()
+    this.add(this.user)
+    this.redirect('/login')
   }
 
-  login(user: User) {
-    this.service.login(user).subscribe()
+  add(user: User) {
+    this.service.add(user).subscribe()
+    this.myFormGroup.reset()
+  }
+
+  hash(password: string) {
+    return password
   }
 
   redirect(rota: string): void {
     this.router.navigateByUrl(rota);
   }
 
-  cadastro() {
-
-  }
-
   entrar() {
-
+    
   }
 
 }

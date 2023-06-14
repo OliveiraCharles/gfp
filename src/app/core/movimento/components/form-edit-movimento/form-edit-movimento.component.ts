@@ -42,6 +42,8 @@ export class FormEditMovimentoComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log('submit');
+    
     this.edit()
   }
 

@@ -6,14 +6,13 @@ class CrudController {
 
   create(req, res) {
     const modelInstance = new this.Model(req.body);
-
     modelInstance
       .save()
       .then(() => {
         res.status(201).send(modelInstance);
       })
-      .catch((error) => {
-        res.status(400).send(error);
+      .catch((err) => {
+        res.status(400).send(err);
       });
   }
 
@@ -90,8 +89,8 @@ class CrudController {
       $expr: {
         $and: [
           { $eq: [{ $month: "$dataCompra" }, parseInt(month)] },
-          { $eq: [{ $year: "$dataCompra" }, parseInt(year)] }
-        ]
+          { $eq: [{ $year: "$dataCompra" }, parseInt(year)] },
+        ],
       },
     };
 

@@ -1,7 +1,14 @@
-<div class="card text-white bg-light mx-auto my-5" style="max-width:400px">
-    <!-- <img class="card-img-top" src="holder.js/100px180/" alt="Title"> -->
-    
-    <div class="card-body">
+<div class="card text-white bg-light mx-auto my-5" style="max-width: 400px">
+  <div class="card-header bg-success text-center text-light">
+    <h2>Entre</h2>
+  </div>
+  <div class="card-body">
+    <form
+      [formGroup]="myFormGroup"
+      #myForm="ngForm"
+      (ngSubmit)="onSubmit()"
+      action=""
+    >
       <div class="mb-3">
         <label for="" class="form-label text-success">Nome:</label>
         <input
@@ -12,32 +19,24 @@
           aria-describedby="helpId"
           placeholder="Nome de Usuário"
         />
-        <small id="helpId" class="form-text text-muted">Seja Criativo</small>
       </div>
-  
+
       <div class="mb-3">
         <div class="mb-3">
           <label for="" class="form-label text-success">Password:</label>
-          <input type="password" class="form-control" name="" id="" placeholder="">
+          <input
+            type="password"
+            class="form-control"
+            name=""
+            id=""
+            placeholder=""
+          />
         </div>
       </div>
-      <!-- <p class="card-text text-success">Text</p> -->
       <div class="mb-3 d-flex justify-content-between">
-        <button type="reset" class="btn btn-secondary">Cadastro</button>
+        <button type="button" (click)="cadastro()" class="btn btn-secondary">Cadastro</button>
         <button type="submit" class="btn btn-success">Entrar</button>
       </div>
-      <div class="mb-3">
-        <label for="" class="form-label text-success">Email:</label>
-        <input
-          type="email"
-          class="form-control"
-          name=""
-          id=""
-          aria-describedby="emailHelpId"
-          placeholder="abc@mail.com"
-        />
-        <small id="emailHelpId" class="form-text text-muted">Opcional</small>
-      </div>
-    </div>
+    </form>
   </div>
-  
+</div>

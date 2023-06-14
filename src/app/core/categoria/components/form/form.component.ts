@@ -36,7 +36,7 @@ export class FormComponent {
 
   salvar(data: any) {
     this.addMovimento(data)
-    this.redirect('/list')
+    this.redirect('/categorias')
   }
 
   addMovimento(data: any) {
