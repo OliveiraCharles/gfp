@@ -3,7 +3,7 @@ const CrudController = require("@controllers/crudController");
 
 class MovimentoFinanceiroController extends CrudController {
   constructor(MovimentoFinanceiro) {
-    super(MovimentoFinanceiro);
+    super(MovimentoFinanceiro, "MovimentosFinanceiros");
   }
 
   // Métodos adicionais específicos de MovimentoFinanceiroController

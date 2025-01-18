@@ -13,6 +13,8 @@ export class ApiService {
     private http: HttpClient) { }
 
   addOne(categoria: any) {
+    console.log("Categoria: ", categoria);
+
     return this.http.post(`${API_URL}/categorias`, categoria)
   }
 

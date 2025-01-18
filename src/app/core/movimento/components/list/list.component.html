@@ -33,15 +33,16 @@
             <td class="">
               <a
                 class="list-group-item list-group-item-action"
-                [routerLink]="['/movimento/edit/', movimento._id]"
+                [routerLink]="['/movimento/edit/', movimento.id]"
               >
-                {{ movimento.dataCompra | date : "dd/MM/yyyy" }}
+                <!-- {{ movimento.dataCompra | date : "dd/MM/yyyy" }} -->
+                {{ movimento.dataCompra | date : "yyyy-MM-dd" }}
               </a>
             </td>
             <td>
               <a
                 class="list-group-item list-group-item-action"
-                [routerLink]="['/movimento/edit/', movimento._id]"
+                [routerLink]="['/movimento/edit/', movimento.id]"
               >
                 {{ movimento.nome }}
               </a>
@@ -49,7 +50,7 @@
             <td class="text-end">
               <a
                 class="list-group-item list-group-item-action"
-                [routerLink]="['/movimento/edit/', movimento._id]"
+                [routerLink]="['/movimento/edit/', movimento.id]"
               >
                 {{ getValorFormatado(movimento) }}
               </a>

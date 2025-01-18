@@ -53,7 +53,7 @@ export class FormEditMovimentoComponent implements OnInit {
       this.movimento = movimento
 
       this.myFormGroup = this.formBuilder.group({
-        _id: [this.id, Validators.required],
+        id: [this.id, Validators.required],
         nome: [this.movimento.nome, Validators.required],
         descricao: [this.movimento.descricao],
         valor: [this.movimento.valor, Validators.required],

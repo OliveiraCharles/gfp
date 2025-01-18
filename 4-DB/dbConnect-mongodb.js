@@ -1,7 +1,7 @@
 const { Pool } = require("pg");
 const config = require("@config/database");
 
-// Conexão ao Banco de Dados PostgreSQL
+// Conexão Banco de dados
 module.exports = (err) => {
   if (err) {
     return console.error();
@@ -14,7 +14,7 @@ module.exports = (err) => {
       .connect()
       .then(() => {
         console.log("DB INFO: PostgreSQL connected");
-        pool.end(); // Fecha a conexão ao terminar
+        // pool.end(); // Fecha a conexão ao terminar
       })
       .catch((err) => console.error(err));
   } else {

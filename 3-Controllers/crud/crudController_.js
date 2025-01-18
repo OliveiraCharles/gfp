@@ -10,45 +10,35 @@ class CrudController {
   }
 
   async create(req, res) {
-    console.log("CREATE");
     const {
       nome,
       descricao,
       valor,
       dataCompra,
-      categoria,
-      tipo /* ou o nome da coluna que relaciona com a categoria */,
+      categoria /* ou o nome da coluna que relaciona com a categoria */,
     } = req.body;
-    // res.send(req.body);
-    console.log(req.body);
 
     try {
       // Primeiro, obtenha o valor da coluna "tipo" da tabela "categoria"
-      if (categoria != null) {
+      const categoriaResult = Categoria.query(
+        `SELECT tipo FROM categorias WHERE nome = '${categoria}'`
+      );
         console.log(categoria);
-        // Certifique-se de que a categoria foi encontrada
-        const categoriaResult = Categoria.query(
-          `SELECT tipo FROM categorias WHERE nome = '${categoria} LIMIT 1'`
-        );
-        console.log(categoriaResult)
-        const tipo = categoriaResult;
-        // const tipo = categoriaResult.rows[0].tipo;
-
-        // Agora, insira na tabela "movimentos" com o valor de "tipo" obtido
-        const result = await this.Model.query(
-          `INSERT INTO ${this.tableName} (nome, descricao, valor, dataCompra, tipo) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
-          [nome, descricao, valor, dataCompra, tipo]
-        );
-        res.status(201).send(result.rows[0]);
-      } else {
-        // Agora, insira na tabela "movimentos" com o valor de "tipo" obtido
-        const result = await this.Model.query(
-          `INSERT INTO ${this.tableName} (nome, descricao, tipo) VALUES ($1, $2, $3) RETURNING *`,
-          [nome, descricao, tipo]
-        );
-        res.status(201).send(result.rows[0]);
+      // // Certifique-se de que a categoria foi encontrada
+      if (categoriaResult.rows.length === 0) {
+        res.status(404).send({ message: "Categoria not found" });
+        return;
       }
-      return;
+
+      const tipo = categoriaResult.rows[0].tipo;
+
+      // Agora, insira na tabela "movimentos" com o valor de "tipo" obtido
+      const result = await this.Model.query(
+        `INSERT INTO ${this.tableName} (nome, descricao, valor, dataCompra, tipo) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+        [nome, descricao, valor, dataCompra, tipo]
+      );
+
+      res.status(201).send(result.rows[0]);
     } catch (error) {
       console.error("DB ERROR:", error);
       res.status(400).send(error);
@@ -56,10 +46,9 @@ class CrudController {
   }
 
   async updateOne(req, res) {
-    console.log('UPDATE ONE');
     const id = req.params.id;
     const updates = req.body;
-    
+
     const setClause = Object.keys(updates)
       .map((column, index) => `${column} = $${index + 1}`)
       .join(", ");
@@ -84,7 +73,6 @@ class CrudController {
   }
 
   async deleteOne(req, res) {
-    console.log('DELETE ONE');
     const id = req.params.id;
 
     try {
@@ -112,7 +100,6 @@ class CrudController {
       res.status(500).send(error);
     }
   }
-
   async getOne(req, res) {
     const id = req.params.id;
 
@@ -132,7 +119,6 @@ class CrudController {
       res.status(500).send(error);
     }
   }
-
   async getByMonth(req, res) {
     const month = req.params.month;
     const year = req.params.year;
