@@ -65,7 +65,7 @@
           <option>Selecione</option>
           <option
             *ngFor="let categoria of categorias"
-            [ngValue]="categoria._id"
+            [ngValue]="categoria.id"
           >
             {{ categoria.nome }}
           </option>

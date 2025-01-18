@@ -3,6 +3,7 @@ import { MovimentoService } from '../../../../../../3-Services/movimento.service
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CategoriaService } from "../../../../../../3-Services/categoria.service";
+import { Categoria } from '1-Entities/MovimentoFinanceiro/valueObjects/Categoria/categoria';
 
 @Component({
   selector: 'app-form',

@@ -61,7 +61,8 @@
           id="categoria"
         >
           <option>Selecione</option>
-          <option *ngFor="let categoria of categorias" [ngValue]="categoria._id">
+          <option *ngFor="let categoria of categorias" 
+            [ngValue]="categoria.id">
             {{ categoria.nome }}
           </option>
         </select>

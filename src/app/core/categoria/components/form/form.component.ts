@@ -31,10 +31,14 @@ export class FormComponent {
   }
 
   onSubmit(data: Categoria) {
+    console.log("Enviando dados: ",data);
+    
     this.addMovimento(data)
   }
 
   salvar(data: any) {
+    console.log("Salvando dados: ", data);
+    
     this.addMovimento(data)
     this.redirect('/categorias')
   }

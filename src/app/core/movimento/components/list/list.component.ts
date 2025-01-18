@@ -55,7 +55,7 @@ export class ListComponent {
       });
 
       const somaValores = this.movimentos.reduce((total, movimento) => {
-        const categoria = this.categorias.find(c => c._id === movimento.categoria);
+        const categoria = this.categorias.find(c => c.id === movimento.categoria);
 
         if (categoria && categoria.tipo === 'saída') {
           return total - movimento.valor;
@@ -73,7 +73,7 @@ export class ListComponent {
   }
 
   getValorFormatado(movimento: any): string {
-    const categoria = this.categorias.find(c => c._id === movimento.categoria);
+    const categoria = this.categorias.find(c => c.id === movimento.categoria);
 
     if (categoria && categoria.tipo === 'saída') {
       return (movimento.valor * -1).toLocaleString('pt-BR', {

@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 class UserController extends CrudController {
   constructor(User) {
-    super(User);
+    super(User, "Users");
   }
 
   // Métodos adicionais específicos de UserController

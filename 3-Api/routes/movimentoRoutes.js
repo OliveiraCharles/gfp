@@ -1,9 +1,9 @@
-/*
-Responsável por encaminhar as rotas /movimentos
-*/
+// movimentoRoutes.js
 const router = require("express").Router();
 const MovimentoController = require("@controllers/crud/movimentoController");
 const auth = require("@services/auth");
+
+// console.log("MovimentoController:", MovimentoController);
 
 router.post("/", MovimentoController.create.bind(MovimentoController));
 router.get("/", MovimentoController.getAll.bind(MovimentoController));

@@ -5,7 +5,7 @@ const CrudController = require("@controllers/crud/crudController");
 
 class RelatorioController extends CrudController {
   constructor(Relatorio) {
-    super(Relatorio);
+    super(Relatorio, "Relatorios");
   }
 
   // Métodos adicionais específicos de RelatorioController
